@@ -1,24 +1,9 @@
 import requests
 
 
-class StudentsAPI:
-    def __init__(self, base_url: str):
-        self.base_url = base_url
-
-    def get_all_clothes(self):
-        url = self.base_url
-        res = requests.get(url).json()
-        return res
-
-    def get_cloth_by_id(self, cloth_id: int):
-        url = f"{self.base_url}{cloth_id}"
-        res = requests.get(url).json()
-        return res
-
-
-def test_get_all_clothes(api: StudentsAPI):
-    res = api.get_all_clothes()
-    assert (res == [{'student_id': 1,
+def test_get_all_companies(url: str):
+    res = requests.get(url).json()
+    assert(res == [{'student_id': 1,
              'name': 'John Smith',
              'gender': 'Male',
              'age': 20,
@@ -49,9 +34,10 @@ def test_get_all_clothes(api: StudentsAPI):
              'learning': 'Engineering',
              'city': 'Tokyo'}])
 
-def test_get_cloth_by_id(api: StudentsAPI):
-    res = api.get_cloth_by_id(1)
-    assert (res == {'student_id': 1,
+
+def test_get_company_by_id(url: str):
+    res = requests.get(url).json()
+    assert(res == {'student_id': 1,
              'name': 'John Smith',
              'gender': 'Male',
              'age': 20,
@@ -59,17 +45,7 @@ def test_get_cloth_by_id(api: StudentsAPI):
              'city': 'New York'})
 
 
-def test_get_cloth_by_name(api: StudentsAPI):
-    # Проверка получения информации по имени
-    clothes = api.clothes()
-    clothes_name = clothes[0]['name']  # Предполагаем, что компания существует в списке
-    res = api.get_cloth_by_name(clothes_name)
-    assert (res['name'] == clothes_name)
-
-
 if __name__ == '__main__':
-    URL = 'http://127.0.0.1:80/api/v1/students/'
-    api = StudentsAPI(URL)
-    test_get_cloth_by_id(api)
-    test_get_all_clothes(api)
-    test_get_cloth_by_name(api)
+    URL = 'http://127.0.0.1:80/api/v1/companies/'
+    test_get_company_by_id(URL + '1')
+    test_get_all_companies(URL)

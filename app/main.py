@@ -56,7 +56,6 @@ app.include_router(students_router, prefix='/api/v1/students', tags=['students']
 if __name__ == '__main__':
     import uvicorn
     import os
-
     try:
         PORT = int(os.environ['PORT'])
     except KeyError as keyerr:

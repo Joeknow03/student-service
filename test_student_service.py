@@ -3,21 +3,21 @@ import requests
 
 def test_get_all_companies(url: str):
     res = requests.get(url).json()
-    assert (res == [{'student_id': 1, 'name': 'John Smith', 'gender': 'Male', 'age': 20, 'learning': 'Computer Science',
+    assert (res == [{'students_id': 1, 'name': 'John Smith', 'gender': 'Male', 'age': 20, 'learning': 'Computer Science',
                      'city': 'New York'},
-                    {'student_id': 2, 'name': 'Emma Johnson', 'gender': 'Female', 'age': 21, 'learning': 'Biology',
+                    {'students_id': 2, 'name': 'Emma Johnson', 'gender': 'Female', 'age': 21, 'learning': 'Biology',
                      'city': 'Los Angeles'},
-                    {'student_id': 3, 'name': 'Michael Lee', 'gender': 'Male', 'age': 19, 'learning': 'History',
+                    {'students_id': 3, 'name': 'Michael Lee', 'gender': 'Male', 'age': 19, 'learning': 'History',
                      'city': 'Chicago'},
-                    {'student_id': 4, 'name': 'Sophia Garcia', 'gender': 'Female', 'age': 22, 'learning': 'Psychology',
+                    {'students_id': 4, 'name': 'Sophia Garcia', 'gender': 'Female', 'age': 22, 'learning': 'Psychology',
                      'city': 'London'},
-                    {'student_id': 5, 'name': 'Daniel Kim', 'gender': 'Male', 'age': 20, 'learning': 'Engineering',
+                    {'students_id': 5, 'name': 'Daniel Kim', 'gender': 'Male', 'age': 20, 'learning': 'Engineering',
                      'city': 'Tokyo'}])
 
 
 def test_get_company_by_id(url: str):
     res = requests.get(url).json()
-    assert (res == {'student_id': 1, 'name': 'John Smith', 'gender': 'Male', 'age': 20, 'learning': 'Computer Science',
+    assert (res == {'students_id': 1, 'name': 'John Smith', 'gender': 'Male', 'age': 20, 'learning': 'Computer Science',
                     'city': 'New York'})
 
 
